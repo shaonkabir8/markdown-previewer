@@ -1,40 +1,49 @@
 import React,{ useState } from 'react';
+import './styles.css'
+
+
+
 const marked = require("marked");
+
+
+// Placeholder Information to store on State
+const placholderMessage = `
+# This is React Markdown Previewer Project
+## This is a sub-heading...
+### And here's some other cool stuff:
+Heres some code
+`;
 
 
 
 const App = () => {
 
-
-
-	const placholderMessage = `
-	# This is React Markdown Previewer Project
-	## This is a sub-heading...
-	### And here's some other cool stuff:
-	Heres some code
-	`;
-
 	const [ text, setText ] = useState(placholderMessage)
 
-
+	
+	// Textarea Change Handler
 	const handleChange = (e) => {
 		setText(e.target.value)
 	}
+
+
 	return (
-		<div className="markdown-preview">
-			<div className="container">
-				<h3 className="text-center my-3">Markdown Previewer</h3>
+
+		<div className="markdown">
+			<div className="container-fluid">
 				<div className="row">
-					<div className="col-md-6">
+					<div className="col-md-10 offset-md-1">
 						<div className="editor">
-							<h3>Markdown Code</h3>
-							<textarea name="code" id="markdownCode" onChange={handleChange}>{text}</textarea>
+							<h3 className="editor-heading">#Editor</h3>
+	            			<textarea className="editor-content" onChange={handleChange}>{text}</textarea>
 						</div>
 					</div>
-					<div className="col-md-6">
-						<div className="output-section">
-							<h3>Output</h3>
-				            <div className="output" dangerouslySetInnerHTML = {{__html: marked(text)}}></div>
+				</div>
+				<div className="row">
+					<div className="col-md-10 offset-md-1">
+						<div className="preview">
+							<h3 className="preview-heading">#Preview</h3>
+	            			<div className="preview-content" dangerouslySetInnerHTML = {{__html: marked(text)}}></div>
 						</div>
 					</div>
 				</div>
@@ -43,3 +52,6 @@ const App = () => {
 	)
 }
 export default App;
+
+
+
