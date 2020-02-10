@@ -8,10 +8,10 @@ const marked = require("marked");
 
 // Placeholder Information to store on State
 const placholderMessage = `
-# This is React Markdown Previewer Project
-## This is a sub-heading...
-### And here's some other cool stuff:
-Heres some code
+# React Markdown Previewer Project of FCC
+## This is a sub-heading(h2)...
+### And here's some other cool stuff: (h3)
+a simple dummy paragraph here......
 `;
 
 
